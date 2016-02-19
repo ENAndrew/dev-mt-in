@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <link rel="stylesheet" href="css/styles3.css">
+    <link rel="stylesheet" href="css/overrideCss.css">
 	
 </head>
 
@@ -23,7 +24,7 @@
 
     <div>      
 
-      <input id="name" type="text" placeholder="Your Name" ng-model='myProfile.name' ng-disabled="!$scope.editing" ng-model="myProfile.myName">
+      <input id="name" type="text" placeholder="Your Name" ng-model='myProfile.name' ng-disabled="!$scope.editing">
       <br />
 
       <input id="likes" type="text" placeholder="Likes" ng-disabled="!$scope.editing" ng-model="myProfile.myLikes">
@@ -31,8 +32,8 @@
 
       <input id="favColor" type="text" placeholder="Favorite Color" ng-disabled="!$scope.editing" ng-model="myProfile.myFavColor">
       <br />
-      <button class="l-btn l-btn-success" ng-click="$scope.saveProfile(myProfile)">Save</button>
-      <button class="l-btn l-btn-danger">Delete</button>
+      <button class="l-btn l-btn-success" ng-click="saveProfile(myProfile)">Save</button>
+      <button class="l-btn l-btn-danger" ng-click="deleteProfile()">Delete</button>
     </div>
   </div>
 
