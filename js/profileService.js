@@ -4,17 +4,14 @@
     
     angular.module('devMtIn').service('profileService', function($http){
         
-        this.baseUrl = 'http://connections.devmounta.in/';
+        var baseUrl = 'http://connections.devmounta.in/';
         
         this.checkForProfile = function(profileId){
             return $http({
                 method: 'GET',
-                url: this.baseUrl + 'api/profiles/' + profileId
+                url: baseUrl + 'api/profiles/' + profileId
             });
              console.log('service.checkForProfile checked');
-//          if(localStorage.getItem('profile')) {
-//            return JSON.parse(localStorage.getItem('profile'));  
-//          };
         };
       
         
@@ -23,19 +20,28 @@
         };
         
         this.saveProfile = function(profile) {
+            console.log('saveProfile ran');
             return $http({
                method: 'POST', //request method
-               url: this.baseUrl + 'api/profiles', //url we are making the request to
+               url: baseUrl + 'api/profiles', //url we are making the request to
                data: profile  //the data we are requesting to be posted
-            }).then(function(profileResponse){
-                localStorage.setItem('profile', JSON.stringify({profileId:profileResponse.data._id}));
-            }).catch(function(err){
-                console.error(err);
+            })
+                    .then(function(res){
+                        localStorage.setItem('profileId', JSON.stringify({profileId: res.data._id}));
+                        console.log(res);
+            })
+                    .catch(function(err){
+                        console.error(err);
             });
         };
         
         this.deleteProfile = function() {
-            localStorage.removeItem('profile');
+            var profileId = JSON.parse(localStorage.getItem('profileId')).profileId;
+            
+            return $http({
+                method: 'DELETE',
+                url: baseUrl + '/api/profiles/' + profileId
+            });
         };
         
 

@@ -6,7 +6,7 @@
         
         $scope.editing = false;
         
-        //this is now held in localStorage via the service
+        //this is now held in localStorage via service
 //        $scope.myProfile = {
 //            friends: [{name: 'Bryan'}, {name: 'Ryan'}, {name: 'Sarah'}, {name: 'Zac'}, {name: 'Erin'}],
 //            name: '',
@@ -28,6 +28,7 @@
         
         $scope.checkForProfile = function() {
           var profileId = JSON.parse(localStorage.getItem('profileId'));
+          
           if(profileId) {
               profileService.checkForProfile(profileId.profileId)
                       .then(function(profile){
@@ -36,7 +37,7 @@
                       .catch(function(err){
                           console.error(err);
               });
-          }
+          };
           console.log('checkForProfile ran');
         }();  //immediately invoked
         
