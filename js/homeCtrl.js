@@ -2,17 +2,9 @@
 
 (function(){
     
-    angular.module('devMtIn').controller('homeCtrl', function($scope, profileService){
+    angular.module('devMtIn').controller('homeCtrl', function($scope, profileService, friendService){
         
         $scope.editing = false;
-        
-        //this is now held in localStorage via service
-//        $scope.myProfile = {
-//            friends: [{name: 'Bryan'}, {name: 'Ryan'}, {name: 'Sarah'}, {name: 'Zac'}, {name: 'Erin'}],
-//            name: '',
-//            myLikes: '',
-//            myFavColor: ''
-//        };
         
         $scope.sortOptions = [{
             display: 'Ascending',
@@ -51,6 +43,13 @@
             $scope.myProfile = profileService.checkForProfile();
         };
         
+        $scope.findFriend = function(query) {
+            friendService.findFriend($scope.myProfile._id, query);
+        };
+        
+        $scope.addFriend = function(friendId) {
+            friendService.addFriend($scope.myProfile._id, friendId);
+        };
        
     });
     
