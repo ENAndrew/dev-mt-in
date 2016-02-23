@@ -44,7 +44,9 @@
         };
         
         $scope.findFriend = function(query) {
+            console.log('findFriend ran');
             friendService.findFriend($scope.myProfile._id, query);
+            
         };
         
         $scope.addFriend = function(friendId) {

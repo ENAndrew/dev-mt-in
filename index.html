@@ -39,8 +39,8 @@
   <div class="l-container">
     <h2>Friends</h2>
 
-    <button class="l-btn l-btn-main" ng-click="findFriend(findFriend.name)">Go</button>
-    <input type="text" placeholder="Find Friends" ng-model='findFriend.name'>
+    <button class="l-btn l-btn-main" ng-click="findFriend(friendName)">Go</button>
+    <input type="text" placeholder="Find Friends" ng-model='friendName'>
     <select ng-model='sortReverse' ng-options='option.value as option.display for option in sortOptions'></select>
     <div class="friendList" ng-repeat="friend in myProfile.friends | filter: findFriend.name | orderBy: 'name' : sortReverse">
       <span class="closeBtn"></span>
@@ -61,7 +61,7 @@
 				</div>
 					<br />
 				<div class="friendList">
-                                    <span class="friend" ng-repeat="friend in $scope.potentialFriends">{{friend.name}}<button ng-click="$scope.addFriend(friend._Id)"></button></span>
+                                    <span class="friend" ng-repeat="friend in potentialFriends">{{friend.name}}<button ng-click="addFriend(friend._Id)"></button></span>
 				</div>
 			</div>
 		</div>
