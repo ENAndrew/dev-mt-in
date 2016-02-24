@@ -8,10 +8,10 @@
         this.findFriend = function(userId, query) {
             return $http({
                 method: 'GET',
-                url: baseUrl + 'api/friends/' + userId + '?name=' + query  ///USER ID value is not coming from anywhere!!
+                url: baseUrl + 'api/friends/' + userId + '?name=' + query  
             })
                     .then(function(result){
-                        $scope.potentialFriends = result;
+                        return result.data;
             });        
         };
         
