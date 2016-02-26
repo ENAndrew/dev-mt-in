@@ -31,7 +31,9 @@
               });
           };
           console.log('checkForProfile ran');
-        }();  //immediately invoked
+        };
+        
+        $scope.checkForProfile();
         
         $scope.saveProfile = function(profile) {
             profileService.saveProfile(profile);
@@ -47,12 +49,16 @@
             friendService.findFriend($scope.myProfile._id, query)
                     .then(function(result){
                         $scope.potentialFriends = result;
-                        console.log($scope.potentialFriends);
             }); 
         };
         
         $scope.addFriend = function(friendId) {
-            friendService.addFriend($scope.myProfile._id, friendId);
+            console.log(friendId);
+            friendService.addFriend($scope.myProfile._id, friendId)
+                    .then(function(result){
+                        console.log(result.data);
+                        $scope.checkForProfile();
+            });
         };
        
     });

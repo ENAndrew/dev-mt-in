@@ -61,7 +61,7 @@
 				</div>
 					<br />
 				<div class="friendList" ng-repeat="friend in potentialFriends">
-                                    <span class="friend">{{friend.name}}<button ng-click="addFriend(friend._Id)"></button></span>
+                                    <button type="submit" ng-click="addFriend(friend)">Add</button><span class="friend">{{  friend.name}}</span>
 				</div>
 			</div>
 		</div>

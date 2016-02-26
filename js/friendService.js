@@ -20,9 +20,6 @@
                 method: 'PUT',
                 url: baseUrl + 'api/friends/' + userId,
                 data: { friendId: friendId}
-            })
-                    .then(function(result){
-                        $scope.checkForProfile();
             });
         };
         
