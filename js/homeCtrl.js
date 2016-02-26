@@ -60,6 +60,13 @@
                         $scope.checkForProfile();
             });
         };
+        
+        $scope.removeFriend = function(friendId) {
+            friendService.removeFriend($scope.myProfile._id, friendId)
+                    .then(function(){
+                        $scope.checkForProfile();
+            });
+        };
        
     });
     
