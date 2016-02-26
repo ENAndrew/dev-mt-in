@@ -25,6 +25,7 @@
               profileService.checkForProfile(profileId.profileId)
                       .then(function(profile){
                           $scope.myProfile = profile.data;
+                          friendService.findFriendsFriends(profile.data);
               })
                       .catch(function(err){
                           console.error(err);
