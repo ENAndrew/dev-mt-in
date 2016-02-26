@@ -44,9 +44,11 @@
         };
         
         $scope.findFriend = function(query) {
-            console.log('findFriend ran');
-            friendService.findFriend($scope.myProfile._id, query);
-            
+            friendService.findFriend($scope.myProfile._id, query)
+                    .then(function(result){
+                        $scope.potentialFriends = result;
+                        console.log($scope.potentialFriends);
+            }); 
         };
         
         $scope.addFriend = function(friendId) {

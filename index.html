@@ -60,8 +60,8 @@
 					Add Friends
 				</div>
 					<br />
-				<div class="friendList">
-                                    <span class="friend" ng-repeat="friend in potentialFriends">{{friend.name}}<button ng-click="addFriend(friend._Id)"></button></span>
+				<div class="friendList" ng-repeat="friend in potentialFriends">
+                                    <span class="friend">{{friend.name}}<button ng-click="addFriend(friend._Id)"></button></span>
 				</div>
 			</div>
 		</div>
